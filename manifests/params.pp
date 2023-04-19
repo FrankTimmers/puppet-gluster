@@ -23,12 +23,12 @@ class gluster::params {
       $repo_gpg_key_source  = 'https://raw.githubusercontent.com/CentOS-Storage-SIG/centos-release-storage-common/master/RPM-GPG-KEY-CentOS-SIG-Storage'
 
       $server_package = $facts['os']['release']['major'] ? {
-        # RHEL 6 and 7 provide Gluster packages natively
-        /(6|7)/ => 'glusterfs-server',
+        # RHEL 6, 7 and 8 provide Gluster packages natively
+        /(6|7|8)/ => 'glusterfs-server',
         default => false
       }
       $client_package = $facts['os']['release']['major'] ? {
-        /(6|7)/ => 'glusterfs-fuse',
+        /(6|7|8)/ => 'glusterfs-fuse',
         default => false,
       }
 
