@@ -33,11 +33,12 @@ class gluster::repo::yum (
     }
   }
 
-  $_release = if versioncmp($release, '4.1') <= 0 {
-    $release
-  } else {
-    $release[0]
-  }
+  #$_release = if versioncmp($release, '4.1') <= 0 {
+  #  $release
+  #} else {
+  #  $release[0]
+  #}
+  $_release = $release
 
   yumrepo { "glusterfs-${facts['os']['architecture']}":
     enabled  => 1,
